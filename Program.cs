@@ -12,7 +12,20 @@ string[] GetArrayStringConsole (string inConsolSimvol)
     return arraySimvol;
 }
 
-
+string[] GetArrayThreeSimvol (string[] array)
+{
+    string[] arrayThreeSimvol = new string[array.Length];
+    for (int i = 0, j = 0; i < array.Length; i++)
+    {
+        string simvol = array[i];
+        if (simvol.Length <= 3)
+        {
+            arrayThreeSimvol[j] = simvol;
+            j++;
+        }
+    }
+    return arrayThreeSimvol;
+}
 
 void Print (string[] array)
 {
@@ -25,5 +38,11 @@ void Print (string[] array)
 
 Console.Write("Введите набор символов через знак (,) - ");
 string inStringSimvol = Console.ReadLine();
+string[] arraySimvol = GetArrayStringConsole(inStringSimvol);
+Console.WriteLine();
 Console.Write("Введенные символы - ");
 Print(GetArrayStringConsole(inStringSimvol));
+Console.WriteLine();
+Console.Write("Введенные символы длинной меньше либо равны 3 - ");
+Print(GetArrayThreeSimvol(arraySimvol));
+Console.WriteLine();
