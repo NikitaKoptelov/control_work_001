@@ -5,8 +5,25 @@
 // пользоваться коллекциями, лучше обойтись исключительно массивами.
 //         Решение:
 
+string[] GetArrayStringConsole (string inConsolSimvol)
+{
+    string[] arraySimvol = new string[inConsolSimvol.Length];
+    arraySimvol = inConsolSimvol.Split(",");
+    return arraySimvol;
+}
 
 
 
+void Print (string[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine();
+}
 
-
+Console.Write("Введите набор символов через знак (,) - ");
+string inStringSimvol = Console.ReadLine();
+Console.Write("Введенные символы - ");
+Print(GetArrayStringConsole(inStringSimvol));
