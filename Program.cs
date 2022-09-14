@@ -14,7 +14,16 @@ string[] GetArrayStringConsole (string inConsolSimvol)
 
 string[] GetArrayThreeSimvol (string[] array)
 {
-    string[] arrayThreeSimvol = new string[array.Length];
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        string simvol = array[i];
+        if (simvol.Length <= 3)
+        {
+            count++;
+        }
+    }
+    string[] arrayThreeSimvol = new string[count];
     for (int i = 0, j = 0; i < array.Length; i++)
     {
         string simvol = array[i];
@@ -31,7 +40,7 @@ void Print (string[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
-        Console.Write($"{array[i]} ");
+        Console.Write($"{array[i]}, ");
     }
     Console.WriteLine();
 }
